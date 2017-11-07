@@ -1,10 +1,65 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Add Post</h1>
-  </body>
-</html>
+<%- include('assets/partials/dashboard-header',{my_title:'Dashboard - Add Post',folder:'../../'})%>
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+        <!-- page start-->
+        <section class="panel">
+            <header class="panel-heading wht-bg">
+               <h4 class="gen-case"> Create Article </h4>
+            </header>
+            <div class="panel-body">
+                <div class="compose-mail">
+                    <form action="/dashboard/post/add" role="form-horizontal" method="post">
+                        <div style="margin-top:-15px; margin-bottom:8px;" class="form-group">
+                            <label class="">Title:</label>
+                            <input name="title" type="text" class="input-lg form-control">
+                        </div>
+
+                        <div style="z-index:9; left:-15px; margin-bottom:12px;" class="col-md-4">
+                          <div class="input-group date form_datetime-component">
+                              <input name="date_publish" class="form-control" readonly="" size="16" type="text">
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary date-set"><i class="fa fa-calendar"></i></button>
+                              </span>
+                          </div>
+                        </div>
+
+                        <div style="left: -13px; margin-bottom:12px;" class="col-lg-6">
+                          <select multiple="" name="category_name" id="e9" style="width:300px" class="populate select2-offscreen" tabindex="-1">
+                              <optgroup label="News">
+                                  <option value="AK">Politik</option>
+                                  <option value="HI">Nasional</option>
+                              </optgroup>
+                              <optgroup label="Teknologi">
+                                  <option value="CA">Gadget</option>
+                                  <option value="NV">Komputer</option>
+                                  <option value="OR">Game</option>
+                              </optgroup>
+                              <optgroup label="Lifestyle">
+                                  <option value="CA">Kekinian</option>
+                                  <option value="NV">Selebrity</option>
+                              </optgroup>
+
+                          </select>
+                        </div>
+
+                        <div class="compose-editor">
+                            <textarea name="article" class="wysihtml5 form-control" rows="9"></textarea>
+                            <input name="file" type="file" class="default">
+                        </div>
+
+                        <div class="compose-btn">
+                            <button class="btn btn-primary btn-sm"><i class="fa fa-check"></i> Publish</button>
+                            <button type="reset" class="btn btn-sm"><i class="fa fa-times"></i> Reset</button>
+                            <button class="btn btn-sm">Draft</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+<%- include('assets/partials/dashboard-footer',{folder:'../../'})%>

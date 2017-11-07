@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title><%=my_title%></title>
+    <!--Core CSS -->
+    <link href="<%=folder%>assets/bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=folder%>assets/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="<%=folder%>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!--icheck-->
+    <link href="<%=folder%>assets/js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<%=folder%>assets/js/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+    <link rel="stylesheet" type="text/css" href="<%=folder%>assets/js/bootstrap-datetimepicker/css/datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="<%=folder%>assets/js/select2/select2.css" />
+    <link href="<%=folder%>assets/css/table-responsive.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="<%=folder%>assets/css/style.css" rel="stylesheet">
+    <link href="<%=folder%>assets/css/style-responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<section id="container" >
+<!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="">
+    </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+      <!-- settings start -->
+      <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="fa fa-tasks"></i>
+              <span class="badge bg-success">3</span>
+          </a>
+          <ul class="dropdown-menu extended tasks-bar">
+              <li>
+                  <p class="">You have 3 pending tasks</p>
+              </li>
+              <li>
+                  <a href="#">
+                      <div class="task-info clearfix">
+                          <div class="desc pull-left">
+                              <h5>UI/UX Productive</h5>
+                              <p>65% , Deadline  9 November`17</p>
+                          </div>
+                                  <span class="notification-pie-chart pull-right" data-percent="55">
+                          <span class="percent"></span>
+                          </span>
+                      </div>
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <div class="task-info clearfix">
+                          <div class="desc pull-left">
+                              <h5>Frontend Dev Productive</h5>
+                              <p>45% , Deadline  9 November`17</p>
+                          </div>
+                                  <span class="notification-pie-chart pull-right" data-percent="45">
+                          <span class="percent"></span>
+                          </span>
+                      </div>
+                  </a>
+              </li>
+              <li>
+                  <a href="#">
+                      <div class="task-info clearfix">
+                          <div class="desc pull-left">
+                              <h5>Backend Dev Productive</h5>
+                              <p>15% , Deadline  8 November`17</p>
+                          </div>
+                                  <span class="notification-pie-chart pull-right" data-percent="25">
+                          <span class="percent"></span>
+                          </span>
+                      </div>
+                  </a>
+              </li>
+
+              <li class="external">
+                  <a href="#">See All Tasks</a>
+              </li>
+          </ul>
+      </li>
+      <!-- settings end -->
+        <!-- notification dropdown start-->
+        <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                <i class="fa fa-bell-o"></i>
+                <span class="badge bg-warning">1</span>
+            </a>
+            <ul class="dropdown-menu extended notification">
+                <li>
+                    <p>Notifications</p>
+                </li>
+                <li>
+                    <div class="alert alert-info clearfix">
+                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
+                        <div class="noti-info">
+                            <a href="#"> 1</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+        <!-- notification dropdown end -->
+    </ul>
+    <!--  notification end -->
+</div>
+<div class="top-nav clearfix">
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+        <li>
+            <input type="text" class="form-control search" placeholder=" Search">
+        </li>
+        <!-- user login dropdown start-->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <img alt="" src="<%=folder%>assets/images/avatar1_small.jpg">
+                <span class="username">Adit Reza</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li><a href="#"><i class=" fa fa-user"></i>Profile</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+            </ul>
+        </li>
+        <!-- user login dropdown end -->
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>
+<!--header end-->
+<!-- sidebar menu start-->
+  <aside>
+      <div id="sidebar" class="nav-collapse">
+          <div class="leftside-navigation">
+              <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="/dashboard">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-pencil"></i>
+                        <span>Post</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/dashboard/post">All Post</a></li>
+                        <li><a href="/dashboard/post/add">Create Post</a></li>
+                    </ul>
+                </li>
+
+              </ul>
+          </div>
+      </div>
+  </aside>
+<!--sidebar end-->
