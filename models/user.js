@@ -1,11 +1,5 @@
 'use strict';
-const crypto = require('crypto');
-
-const secret = 'abcdefg';
-const hash = crypto.createHmac('sha256', secret)
-                   .update('I love cupcakes')
-                   .digest('hex');
-console.log(hash);
+const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
@@ -15,9 +9,19 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     salt: DataTypes.STRING
   });
+  
   User.prototype.getFullName = function () {
     return this.first_name + ' ' + this.last_name
   }
+
+  User.beforeCreate((user, options) => {
+    const saltRounds = 10;
+    const myPlaintextPassword = user.password;
+    return  bcrypt.hash(myPlaintextPassword, saltRounds)
+      .then(function(hash) {
+        user.password = hash
+      });
+  });
 
   User.associate = (models) => {
     User.hasMany(models.Post)

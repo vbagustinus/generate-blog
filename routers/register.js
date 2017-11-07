@@ -6,8 +6,23 @@ router.get('/', (req, res) => {
   res.render('register')
 })
 
-router.post('/', (req, res) => {
-
+router.post('/',(req, res) => {
+  let input = req.body
+  User.create(
+  {
+    first_name: input.first_name,
+    last_name: input.last_name,
+    username: input.username,
+    password: input.password,
+    email: input.email,
+    gender: input.gender
+  })
+  .then(() => {
+    res.redirect('/login')
+  })
+  .catch(err => {
+    res.render('register')
+  })
 })
 
 module.exports = router
