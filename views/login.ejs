@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/favicon.png">
-    <title>Blog - Login</title>
-    <!--Core CSS -->
-    <link href="assets/bs3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-reset.css" rel="stylesheet">
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet" />
-</head>
-
-  <body class="login-body">
+<%- include('assets/partials/log-sign-header',{my_title:'Blog - Login',folder:''})%>
     <div class="container">
       <form class="form-signin" action="index.html">
         <h2 class="form-signin-heading">sign in now</h2>
@@ -63,9 +47,4 @@
           <!-- modal -->
       </form>
     </div>
-    <!--Core js-->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/bs3/js/bootstrap.min.js"></script>
-
-  </body>
-</html>
+<%- include('assets/partials/log-sign-footer',{folder:''})%>
