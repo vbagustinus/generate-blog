@@ -3,7 +3,13 @@ const router = express.Router()
 const models = require('../models');
 
 router.get('/', (req, res) => {
-  res.render('post')
+  models.Post.findAll()
+    .then(dataPosts => {
+      res.render('post',{dataPosts:dataPosts})
+    })
+    .catch( err => {
+      res.send(err)
+    })
 })
 
 module.exports = router

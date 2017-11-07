@@ -2,26 +2,25 @@
 
     <div class="container">
 
-      <form class="form-signin" action="index.html">
+      <form class="form-signin" action="/register" method="post">
         <h2 class="form-signin-heading">registration form</h2>
         <div class="login-wrap">
             <p>Enter your personal details below</p>
-            <input type="text" class="form-control" placeholder="First Name" autofocus>
-            <input type="text" class="form-control" placeholder="Last Name" autofocus>
-            <input type="text" class="form-control" placeholder="Email" autofocus>
-            <div class="radios">
+            <input type="text" name="first_name" class="form-control" placeholder="First Name" autofocus>
+            <input type="text" name="last_name" class="form-control" placeholder="Last Name" autofocus>
+            <input type="text" name="email" class="form-control" placeholder="Email" autofocus>
+            <div name="gender" class="radios">
                 <label class="label_radio col-lg-6 col-sm-6" for="radio-01">
-                    <input name="sample-radio" id="radio-01" value="1" type="radio" checked /> Male
+                    <input id="radio-01" value="male" type="radio" checked /> Male
                 </label>
                 <label class="label_radio col-lg-6 col-sm-6" for="radio-02">
-                    <input name="sample-radio" id="radio-02" value="1" type="radio" /> Female
+                    <input id="radio-02" value="female" type="radio" /> Female
                 </label>
             </div>
 
 
-            <input type="text" class="form-control" placeholder="User Name" autofocus>
-            <input type="password" class="form-control" placeholder="Password">
-            <input type="password" class="form-control" placeholder="Re-type Password">
+            <input name="username" type="text" class="form-control" placeholder="User Name" autofocus>
+            <input name="password" type="password" class="form-control" placeholder="Password">
             <label class="checkbox">
                 <input type="checkbox" value="agree this condition"> I agree to the Terms of Service and Privacy Policy
             </label>
