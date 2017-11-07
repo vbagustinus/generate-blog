@@ -6,12 +6,12 @@ module.exports = (sequelize, DataTypes) => {
     file: DataTypes.STRING,
     date_publish: DataTypes.DATE,
     UserId: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+
+  Post.associate = (models) => {
+    Post.belongsToMany(models.Category, {through: 'Post_Category'})
+    Post.hasMany(models.Post_Category)
+    Post.belongsTo(models.User)
+  }
   return Post;
 };

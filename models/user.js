@@ -6,12 +6,13 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
     salt: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  User.prototype.getFullName = function () {
+    return this.first_name + ' ' + this.last_name
+  }
+
+  User.associate = (models) => {
+    User.hasMany(models.Post)
+  }
   return User;
 };

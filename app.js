@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const index = require('./routers/index');
-const user = require('./routers/users');
+const login = require('./routers/login');
 const register = require('./routers/register');
+const post = require('./routers/post');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -11,10 +12,10 @@ app.use(bodyParser.json())
 app.set('view engine', 'ejs');
 
 //ROUTE
+app.use('/login', login);
+app.use('/register', register);
 app.use('/', index);
-app.use('/', user);
-app.use('/', register);
-
+app.use('/post', post);
 
 app.listen(3000,(err)=>{
   if(!err){
