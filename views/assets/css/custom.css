@@ -1,4 +1,32 @@
+.container_article_page{
+			max-width: 700px;
+			margin: 0 auto;
+		}
 
+		#content_article_page{
+			border: 2px dotted green;
+			padding: 18px;
+			margin-left: 215px;
+			min-height: 2000px;
+			color: darkgrey;
+		}
+
+		#sidebar{
+			float: left;
+			width: 200px;
+			color: #ffbdbd;
+			will-change: min-height;
+		}
+
+		#sidebar .sidebar__inner{
+			border: 2px dotted red;
+			padding: 10px;
+			position: relative;
+			transform: translate(0, 0);
+			transform: translate3d(0, 0, 0);
+			will-change: position, transform;
+		}
+    
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
