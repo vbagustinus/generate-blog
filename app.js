@@ -6,8 +6,7 @@ const checkOwnBlog = require('./helpers/checkOwnBlog');
 const index = require('./routers/index');
 const login = require('./routers/login');
 const register = require('./routers/register');
-const post = require('./routers/post');
-const dashboard = require('./routers/dashboard')
+const post = require('./routers/post')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())

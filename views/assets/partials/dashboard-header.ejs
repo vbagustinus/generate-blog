@@ -131,7 +131,9 @@
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="<%=folder%>assets/images/avatar1_small.jpg">
-                <span class="username">Adit Reza</span>
+                <%if(username){%>
+                <span class="username"><%=username%></span>
+                <%}%>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">

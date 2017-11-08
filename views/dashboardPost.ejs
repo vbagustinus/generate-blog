@@ -35,7 +35,7 @@
                                 <td data-title="ACTIONS">
                                   <div class="panel-body">
                                     <a style="margin-bottom: 5px;" href="/dashboard/post/edit/<%=post.id%>" type="button" class="btn btn-default btn-sm">Update</a>
-                                    <a style="margin-bottom: 5px;" href="#" type="button" class="btn btn-default btn-sm">Delete</a>
+                                    <a style="margin-bottom: 5px;" href="/dashboard/post/delete/<%=post.id%>" type="button" class="btn btn-default btn-sm" onclick="return confirm('are you sure to delete?!');">Delete</a>
                                   </div>
                                 </td>
                             </tr>

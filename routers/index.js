@@ -3,6 +3,13 @@ const router = express.Router()
 const models = require('../models');
 const checkLogin = require('../helpers/checkLogin');
 
+
+// START DUMMY PAGE
+router.get('/article-page',function(req,res){
+  res.render('article-page')
+})
+// END DUMMY PAGE
+
 router.get('/', (req, res) => {
   res.render('index')
 })
@@ -32,10 +39,7 @@ router.get('/:blog_name/post/:id', checkLogin ,function(req,res){
 //----------------------
 
 router.get('/:blog_name/post/edit/:id',function(req,res){
-  models.Post.findById(
-  {
-    where: req.params.id
-  })
+  models.Post.findById(req.params.id)
   .then(dataPost=>{
       res.render('editPost',{dataPost:dataPost, session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
   })
