@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
+const session = require('express-session')
 const index = require('./routers/index');
 const login = require('./routers/login');
 const register = require('./routers/register');
@@ -10,6 +11,9 @@ const dashboard = require('./routers/dashboard')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/views'))
+app.use(session({
+  secret: 'generate-blog'
+}))
 
 app.set('view engine', 'ejs');
 

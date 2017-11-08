@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     article: DataTypes.TEXT,
     file: DataTypes.STRING,
     date_publish: DataTypes.DATE,
-    UserId: DataTypes.INTEGER
+    UserId: DataTypes.INTEGER,
+    link: DataTypes.STRING
   });
 
   Post.associate = (models) => {

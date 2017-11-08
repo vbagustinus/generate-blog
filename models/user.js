@@ -7,9 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     last_name: DataTypes.STRING,
     username: DataTypes.STRING,
     password: DataTypes.STRING,
-    salt: DataTypes.STRING
+    blog_name: DataTypes.STRING,
+    gender: DataTypes.STRING
   });
-  
+
   User.prototype.getFullName = function () {
     return this.first_name + ' ' + this.last_name
   }
