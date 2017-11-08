@@ -43,7 +43,23 @@ router.get('/:blog_name/post/edit/:id',function(req,res){
     res.send(err)
   })
 })
-
+router.post('/:blog_name/post/edit/:id', function(req,res){
+  models.post.update({
+    title : req.body.title,
+    article : req.body.article,
+    date_publish: new Date(),
+    link: setlink,
+    UserId: req.session.user_id
+  },{
+    where : {
+      id : req.params.id
+    }
+  }).then(function(){
+    res.redirect('../dashboard')
+  }).catch(function(err){
+    console.log(err);
+  })
+})
 //----------------------
 // CREATE
 //----------------------
@@ -93,6 +109,20 @@ router.post('/:blog_name/addpost', function(req,res){
 })
 
 
-module.exports = router
+//----------------------
+// DELETE
+//----------------------
+
+router.get('/delete/:id', function(req,res){
+  models.Post.destroy({
+    where : {
+      id : req.params.id
+    }
+  }).then(function(){
+    res.redirect('../dashboard')
+  }).catch(function(err){
+    console.log(err);
+  })
+})
 
 module.exports = router
