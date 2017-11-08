@@ -1,4 +1,4 @@
-<%- include('assets/partials/log-sign-header',{my_title:'Blog - Login',folder:''})%>
+<%- include('assets/partials/log-sign-header',{my_title:'Blog - Register',folder:''})%>
 
     <div class="container">
 
@@ -9,16 +9,11 @@
             <input type="text" name="first_name" class="form-control" placeholder="First Name" autofocus>
             <input type="text" name="last_name" class="form-control" placeholder="Last Name" autofocus>
             <input type="text" name="email" class="form-control" placeholder="Email" autofocus>
-            <div name="gender" class="radios">
-                <label class="label_radio col-lg-6 col-sm-6" for="radio-01">
-                    <input id="radio-01" value="male" type="radio" checked /> Male
-                </label>
-                <label class="label_radio col-lg-6 col-sm-6" for="radio-02">
-                    <input id="radio-02" value="female" type="radio" /> Female
-                </label>
-            </div>
-
-
+            <select name="gender" class="form-control m-bot15">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <input type="text" name="blog_name" class="form-control" placeholder="Blog Name" autofocus>
             <input name="username" type="text" class="form-control" placeholder="User Name" autofocus>
             <input name="password" type="password" class="form-control" placeholder="Password">
             <label class="checkbox">

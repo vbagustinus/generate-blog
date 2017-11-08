@@ -1,10 +1,117 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Woyo Home</h1>
-  </body>
+<%- include('assets/partials/content',{my_title:"Blog - Home",folder:""})%>
+
+		<div class="wrapper wrapperThreeColumns">
+			<div class="leftSidebar">
+				<div class="theiaStickySidebar">
+					<div class="box">
+						<h2>Left Sidebar</h2>
+
+						<p>
+							Gloriatur neglegentur ea mel. Eu pro option moderatius, elitr nonumy molestiae
+							ad nam. Quis labore eos ut, his ad sale officiis efficiendi. Usu ex petentium
+							theophrastus, an his prima atqui. Eu quando vituperata vel. Ad eos modus
+							aperiam omittantur, ludus scribentur et qui.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="content box">
+				<div class="theiaStickySidebar">
+          <div class="blog-container">
+
+      <div class="blog-header">
+        <div class="blog-cover">
+          <div class="blog-author">
+            <h3>Russ Beye</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-body">
+        <div class="blog-title">
+          <h1><a href="#">I Like To Make Cool Things</a></h1>
+        </div>
+        <div class="blog-summary">
+          <p>I love working on fresh designs that <a href="https://www.youtube.com/watch?v=hANtM1vJvOo">breathe</a>. To that end, I need to freshen up my portfolio here because it does exactly the opposite. For the next month I will be working almost exclusively on my portfolio. Sounds like a lot of fun!</p>
+        </div>
+        <div class="blog-tags">
+          <ul>
+            <li><a href="#">css</a></li>
+            <li><a href="#">web design</a></li>
+            <li><a href="#">codepen</a></li>
+            <li><a href="https://twitter.com/russbeye">twitter</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="blog-footer">
+        <ul>
+          <li class="published-date">2 days ago</li>
+          <li class="comments"><a href="#"><svg class="icon-bubble"><use xlink:href="#icon-bubble"></use></svg><span class="numero">4</span></a></li>
+          <li class="shares"><a href="#"><svg class="icon-star"><use xlink:href="#icon-star"></use></svg><span class="numero">1</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+				</div>
+			</div>
+
+			<div class="rightSidebar">
+				<div class="theiaStickySidebar">
+					<div class="box">
+						<h2>Right Sidebar</h2>
+
+						<p>
+							Decore aliquando has in, mel exerci inermis an. Phaedrum consequat cum ex, harum
+							legere ad qui. Ea quo movet omnium, graecis vituperatoribus sed te. Cu est omnis
+							deseruisse referrentur.
+						</p>
+						<p>
+						<div class="image" style="height: 200px; background-image: url('images/photo-1429593886847-3cc52983f919.jpg');"></div>
+						</p>
+					</div>
+
+					<div class="box">
+						<p>
+							Ei rebum movet diceret per. In autem novum voluptatibus quo. Ne nec bonorum
+							menandri, justo appetere vel ex. Ea fugit noster eruditi eam, vix natum liber
+							temporibus an. Vis cu recteque intellegam, qui iisque oportere at. Solet exerci sed
+							an, ius mutat quidam an.
+						</p>
+						<p>
+						<div class="image" style="height: 150px; background-image: url('images/photo-1461016951828-c09537329b3a.jpg');"></div>
+						</p>
+					</div>
+
+					<div class="box">
+						<p>
+							Has te iudico gloriatur. Vix et tritani interesset. Te paulo perpetua his, eu
+							accusata evertitur philosophia vix, ei minimum inimicus has. Pro an hinc constituto
+							disputando, luptatum laboramus eu quo, ad fugit saepe lobortis sea. Vel possit
+							pertinax no, quando graeco pro in, id quo timeam erroribus.
+						</p>
+						<p>
+						<div class="image" style="height: 150px; background-image: url('images/photo-1453165549043-d43505de900d.jpg');"></div>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p>
+				<div class="image" style="height: 900px; background-image: url('images/photo-1461016951828-c09537329b3a.jpg');"></div>
+			</p>
+		</div>
+
+		<script>
+			$(document).ready(function() {
+				$('.leftSidebar, .content, .rightSidebar')
+					.theiaStickySidebar({
+						additionalMarginTop: 30
+					});
+			});
+		</script>
+	</body>
 </html>
