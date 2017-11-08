@@ -10,13 +10,14 @@ router.get('/', function(req,res){
   res.render('dashboard')
 })
 
-router.get('/post/:id', function(req,res){
+router.get('/post', function(req,res){
   models.Post.findAll(
-    {
-      where: {
-        id: req.params.id
-      }
-    })
+    // {
+    //   where: {
+    //     id: req.params.id
+    //   }
+    // }
+    )
     .then(dataPosts=>{
       res.render('post',{dataPosts:dataPosts})
     })
@@ -58,13 +59,14 @@ router.get('/post/add', function(req,res){
 
 router.post('/post/add', function(req,res){
   let input = req.body
+  let setlink = input.title.split(' ').join('-').toLowerCase()
   models.Post.create(
     {
       title: input.title,
       article: input.article,
-      date_publish: input.date_publish,
-      category_name: input.category_name
-
+      date_publish: new Date(),
+      category_name: input.category_name,
+      link: setlink
     })
     .then(()=>{
       res.redirect('/post')
