@@ -7,9 +7,37 @@ router.get('/', (req, res) => {
   res.render('index')
 })
 
-router.get('/:blog_name',checkLogin, function(req,res) {
+router.get('/:blog_name', function(req,res) {
   // res.render('dashboard')
-  res.render('dashboard', {session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
+  if(req.params.blog_name == req.session.blog_name){
+    res.render('dashboard', {session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
+  } else {
+    models.User.findOne(
+    {
+      where : {
+        blog_name: req.params.blog_name
+      },
+      include: [
+      {
+        model: models.Post,
+      }],
+      order: [
+         [ models.Post, 'date_publish', 'ASC' ]
+      ]
+    })
+    .then(dataPosts=>{
+      if(!dataPosts){
+        res.redirect('/register')
+      } else {
+        res.render('index', {dataPosts:dataPosts})
+      }
+    })
+    .catch(err=>{
+      console.log(err);
+      res.send(err)
+    })
+  }
+
 })
 
 router.get('/:blog_name/post/:id', checkLogin ,function(req,res){
@@ -32,10 +60,7 @@ router.get('/:blog_name/post/:id', checkLogin ,function(req,res){
 //----------------------
 
 router.get('/:blog_name/post/edit/:id',function(req,res){
-  models.Post.findById(
-  {
-    where: req.params.id
-  })
+  models.Post.findById(req.params.id)
   .then(dataPost=>{
       res.render('editPost',{dataPost:dataPost, session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
   })

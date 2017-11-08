@@ -5,7 +5,7 @@ const models = require('../models');
 router.get('/', (req, res) => {
   models.Post.findAll()
     .then(dataPosts => {
-      res.render('post',{dataPosts:dataPosts})
+      res.render('index',{dataPosts:dataPosts})
     })
     .catch( err => {
       res.send(err)
