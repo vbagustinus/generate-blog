@@ -1,5 +1,5 @@
 <%- include('assets/partials/dashboard-header',{my_title:'Dashboard - All Post',folder:'../../'})%>
-
+/
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper">
@@ -20,28 +20,26 @@
                         <table class="table table-bordered table-striped table-condensed cf">
                             <thead class="cf">
                             <tr>
-                                <th>No</th>
+                                <th>NO</th>
                                 <th>TITLE</th>
                                 <th>PUBLISH</th>
                                 <th>ACTIONS</th>
                             </tr>
                             </thead>
                             <tbody>
-
+                            <%dataPosts.forEach((post,i) =>{%>
                             <tr>
-                                <td class="numeric" data-title="ID">1</td>
-                                <td data-title="TITLE">Appan</td>
-                                <td data-title="PUBLISH">30 October 2017 - 05:25</td>
-                                <td data-title="ARTICLE">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-                                <td data-title="FILE">#</td>
+                                <td class="numeric" data-title="NO"><%=i+1%></td>
+                                <td data-title="TITLE"><%=post.title%></td>
+                                <td data-title="PUBLISH"><%=post.date_publish%></td>
                                 <td data-title="ACTIONS">
                                   <div class="panel-body">
-                                    <a style="margin-bottom: 5px;" href="/dashboard/post/edit" type="button" class="btn btn-default btn-sm">Update</a>
+                                    <a style="margin-bottom: 5px;" href="/dashboard/post/edit/<%=post.id%>" type="button" class="btn btn-default btn-sm">Update</a>
                                     <a style="margin-bottom: 5px;" href="#" type="button" class="btn btn-default btn-sm">Delete</a>
                                   </div>
                                 </td>
                             </tr>
-
+                            <%})%>
                             </tbody>
                         </table>
                     </section>

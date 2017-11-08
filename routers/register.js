@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/',(req, res) => {
-  res.send(req.body)
+  // res.send(req.body)
   let input = req.body
   models.User.create(
   {

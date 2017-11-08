@@ -1,4 +1,4 @@
-<%- include('assets/partials/dashboard-header',{my_title:'Dashboard - Add Post',folder:'../../'})%>
+<%- include('assets/partials/dashboard-header',{my_title:'Dashboard - Add Post',folder:'../../../'})%>
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
@@ -12,12 +12,12 @@
                     <form action="/dashboard/post/add" role="form-horizontal" method="post">
                         <div style="margin-top:-15px; margin-bottom:8px;" class="form-group">
                             <label class="">Title :</label>
-                            <input name="title" type="text" class="form-control">
+                            <input name="title" type="text" class="form-control" value="<%=dataPost.title%>">
                         </div>
 
                         <div style="left:-15px; margin-bottom:12px;" class="col-md-4">
                           <div class="input-group date form_datetime-component">
-                              <input name="date_publish" class="form-control" readonly="" size="16" type="text">
+                              <input value="<%=dataPost.date_publish%>" name="date_publish" class="form-control" readonly="" size="16" type="text">
                               <span class="input-group-btn">
                                 <button type="button" class="btn btn-primary date-set"><i class="fa fa-calendar"></i></button>
                               </span>
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="compose-editor">
-                            <textarea name="article" class="wysihtml5 form-control" rows="9"></textarea>
+                            <textarea name="article" class="wysihtml5 form-control" rows="9"><%=dataPost.article%></textarea>
                             <input name="file" type="file" class="default">
                         </div>
 
@@ -62,4 +62,4 @@
         </section>
     </section>
     <!--main content end-->
-<%- include('assets/partials/dashboard-footer',{folder:'../../'})%>
+<%- include('assets/partials/dashboard-footer',{folder:'../../../'})%>
