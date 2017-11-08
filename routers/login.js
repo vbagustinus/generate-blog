@@ -20,6 +20,7 @@ router.post('/', function(req, res){
           req.session.loggedIn = true
           req.session.username = user.getFullName()
           req.session.user_id = user.id
+          req.session.blog_name = user.blog_name
           console.log('----',req.session);
           res.redirect('/dashboard')
         } else {

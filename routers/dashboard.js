@@ -15,7 +15,7 @@ router.get('/post/:id', checkLogin ,function(req,res){
   models.Post.findAll(
   {
     where: {
-      id: req.params.id
+      UserId: req.params.id
     }
   })
   .then(dataPosts => {
@@ -59,8 +59,8 @@ router.get('/addpost', function(req,res){
 
 router.post('/addpost', function(req,res){
   let input = req.body
+  // res.send(input)
   let setlink = input.title.split(' ').join('-').toLowerCase()
-
   models.Post.create(
   {
     title: input.title,
@@ -71,7 +71,7 @@ router.post('/addpost', function(req,res){
     UserId: req.session.user_id
   })
   .then((post)=>{
-    let newdata = input.category_name.map(dataId =>{
+    let newData = input.category_name.map(dataId =>{
       return new Promise(function(resolve, reject) {
         models.Post_Category.create(
         {
@@ -81,12 +81,14 @@ router.post('/addpost', function(req,res){
         resolve()
       });
     })
+    console.log('Masuk');
     Promise.all(newData)
     .then(()=>{
-      res.redirect('/dashboardPost',{dataPosts:dataPosts,username:req.session.username, user_id:req.session.user_id})
+      res.redirect('/dashboard')
     })
   })
   .catch(err=>{
+    console.log(err);
     res.send(err)
   })
 })

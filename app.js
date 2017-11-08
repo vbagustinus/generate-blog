@@ -23,6 +23,8 @@ app.use('/register', register);
 app.use('/dashboard', dashboard)
 app.use('/', index);
 app.use('/post', post);
+console.log('====',session.blog_name);
+// app.use(`/${session.blog_name}`);
 
 app.listen(3000,(err)=>{
   if(!err){
