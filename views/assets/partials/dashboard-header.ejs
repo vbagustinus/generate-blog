@@ -152,7 +152,7 @@
           <div class="leftside-navigation">
               <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a href="/dashboard">
+                    <a href="/<%=session%>">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -163,8 +163,8 @@
                         <span>Post</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="/dashboard/post/<%=user_id%>">All Post</a></li>
-                        <li><a href="/dashboard/addpost">Create Post</a></li>
+                        <li><a href="/<%=session%>/post/<%=user_id%>">All Post</a></li>
+                        <li><a href="/<%=session%>/addpost">Create Post</a></li>
                     </ul>
                 </li>
 

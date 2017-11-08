@@ -21,8 +21,8 @@ router.post('/', function(req, res){
           req.session.username = user.getFullName()
           req.session.user_id = user.id
           req.session.blog_name = user.blog_name
-          console.log('----',req.session);
-          res.redirect('/dashboard')
+          // res.redirect('/dashboard')
+          res.redirect('/'+user.blog_name)
         } else {
           res.render('login', {error: true})
         }

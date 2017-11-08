@@ -66,7 +66,6 @@ router.post('/addpost', function(req,res){
     title: input.title,
     article: input.article,
     date_publish: new Date(),
-    category_name: input.category_name,
     link: setlink,
     UserId: req.session.user_id
   })

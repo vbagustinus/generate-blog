@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const checkOwnBlog = require('./helpers/checkOwnBlog');
 const index = require('./routers/index');
 const login = require('./routers/login');
 const register = require('./routers/register');
@@ -19,11 +20,10 @@ app.set('view engine', 'ejs');
 
 //ROUTE
 app.use('/login', login);
-app.use('/register', register);
-app.use('/dashboard', dashboard)
 app.use('/', index);
+app.use('/register', register);
+// app.use('/dashboard', dashboard);
 app.use('/post', post);
-console.log('====',session.blog_name);
 // app.use(`/${session.blog_name}`);
 
 app.listen(3000,(err)=>{
