@@ -8,10 +8,13 @@ const checkLogin = require('../helpers/checkLogin');
 router.get('/article-page',function(req,res){
   res.render('article-page')
 })
+router.get('/404',function(req,res){
+  res.render('404')
+})
 // END DUMMY PAGE
 
 router.get('/', (req, res) => {
-  res.render('index')
+  res.redirect('login')
 })
 
 router.get('/:blog_name', function(req,res) {
