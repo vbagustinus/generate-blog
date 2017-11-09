@@ -3,7 +3,6 @@ const router = express.Router()
 const models = require('../models');
 const checkLogin = require('../helpers/checkLogin');
 
-
 // START DUMMY PAGE
 router.get('/article-page',function(req,res){
   res.render('article-page')
@@ -11,47 +10,18 @@ router.get('/article-page',function(req,res){
 // END DUMMY PAGE
 
 router.get('/', (req, res) => {
-  res.render('index')
+  res.render('login')
 })
 
 router.get('/:blog_name', function(req,res) {
-  console.log("TEST");
-  // res.render('dashboard')
-  if(req.params.blog_name == req.session.blog_name){
-    res.render('dashboard', {session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
-  } else {
-    res.redirect(`/${req.params.blog_name}/posts`)
-    // models.User.findOne(
-    // {
-    //   where : {
-    //     blog_name: req.params.blog_name
-    //   },
-    //   include: [
-    //   {
-    //     model: models.Post,
-    //   }],
-    //   order: [
-    //      [ models.Post, 'date_publish', 'ASC' ]
-    //   ]
-    // })
-    // .then(dataPosts=>{
-    //   if(!dataPosts){
-    //     res.send(404)
-    //   } else {
-    //     res.render('index', {dataPosts:dataPosts})
-    //   }
-    // })
-    // .catch(err=>{
-    //   console.log(err);
-    //   res.send(err)
-    // })
+  if(req.session.blog_name==req.params.blog_name){
+    res.render('dashboard',{session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
   }
-
+  res.redirect(`/${req.params.blog_name}/posts`)
 })
 
 
 router.get('/:blog_name/posts', function(req,res) {
-  console.log("redirect");
   models.User.findOne(
   {
     where : {
@@ -69,6 +39,7 @@ router.get('/:blog_name/posts', function(req,res) {
     if(!dataPosts){
       res.send(404)
     } else {
+      // res.send(dataPosts)
       res.render('index', {dataPosts:dataPosts})
     }
   })
@@ -169,7 +140,6 @@ router.post('/:blog_name/addpost', function(req,res){
     res.send(err)
   })
 })
-
 
 //----------------------
 // DELETE

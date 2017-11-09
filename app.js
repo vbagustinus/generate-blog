@@ -6,7 +6,7 @@ const checkOwnBlog = require('./helpers/checkOwnBlog');
 const index = require('./routers/index');
 const login = require('./routers/login');
 const register = require('./routers/register');
-const post = require('./routers/post');
+const posts = require('./routers/post');
 const logout = require('./routers/logout');
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 //ROUTE
 app.use('/login', login);
 app.use('/register', register);
-app.use('/post', post);
+app.use('/posts', posts);
 app.use('/logout', logout);
 app.use('/', index);
 
