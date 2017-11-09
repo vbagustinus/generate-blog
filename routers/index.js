@@ -3,7 +3,6 @@ const router = express.Router()
 const models = require('../models');
 const checkLogin = require('../helpers/checkLogin');
 
-
 // START DUMMY PAGE
 router.get('/article-page',function(req,res){
   res.render('article-page')
@@ -14,43 +13,48 @@ router.get('/404',function(req,res){
 // END DUMMY PAGE
 
 router.get('/', (req, res) => {
-  res.redirect('login')
+  res.render('login')
 })
 
 router.get('/:blog_name', function(req,res) {
-  // res.render('dashboard')
-  if(req.params.blog_name == req.session.blog_name){
-    res.render('dashboard', {session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
-  } else {
-    models.User.findOne(
-    {
-      where : {
-        blog_name: req.params.blog_name
-      },
-      include: [
-      {
-        model: models.Post,
-      }],
-      order: [
-         [ models.Post, 'date_publish', 'ASC' ]
-      ]
-    })
-    .then(dataPosts=>{
-      if(!dataPosts){
-        res.redirect('/register')
-      } else {
-        // res.send(dataPosts)
-        res.render('index', {dataPosts:dataPosts})
-      }
-    })
-    .catch(err=>{
-      console.log(err);
-      res.send(err)
-    })
+  if(req.session.blog_name==req.params.blog_name){
+    res.render('dashboard',{session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
   }
-
+  res.redirect(`/${req.params.blog_name}/posts`)
 })
 
+
+router.get('/:blog_name/posts', function(req,res) {
+  models.User.findOne(
+  {
+    where : {
+      blog_name: req.params.blog_name
+    },
+    include: [
+    {
+      model: models.Post,
+      include: [
+        {
+          model: models.Category
+        }]
+    }],
+    order: [
+       [ models.Post, 'date_publish', 'ASC' ]
+    ]
+  })
+  .then(dataPosts=>{
+    if(!dataPosts){
+      res.render('404')
+    } else {
+      // res.send(dataPosts)
+      res.render('index', {dataPosts:dataPosts})
+    }
+  })
+  .catch(err=>{
+    console.log(err);
+    res.send(err)
+  })
+})
 router.get('/:blog_name/post/:id', checkLogin ,function(req,res){
   models.Post.findAll(
   {
