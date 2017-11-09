@@ -44,10 +44,10 @@ router.get('/:blog_name/posts', function(req,res) {
   })
   .then(dataPosts=>{
     if(!dataPosts){
-      res.render('404')
+      res.render('404',{loginStatus:req.session.loggedIn,username:req.session.username, user_id:req.session.user_id})
     } else {
       // res.send(dataPosts)
-      res.render('index', {dataPosts:dataPosts})
+      res.render('index', {dataPosts:dataPosts,loginStatus:req.session.loggedIn,username:req.session.username, user_id:req.session.user_id})
     }
   })
   .catch(err=>{
