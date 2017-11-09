@@ -39,9 +39,11 @@
 							<div class="cardTitle">
 								<a href="/posts/details/<%=dataPosts.Posts[i].link%>"><%=dataPosts.Posts[i].title%></a>
 								<div class="cardFooter">
-									<span class="icon icon--time"><%=dataPosts.blog_name%></span>
-									<span class="icon icon--time"><%=dataPosts.Posts[i].date_publish%></span>
-									<span class="icon icon--comment"><a href="#">2 comments</a></span>
+									<div style="font-size: 13px; color: rgb(108, 108, 108); text-decoration: none;">
+										<span class="fa fa-pencil-square-o"><a style="padding: 5px;"><%=dataPosts.blog_name%></a></span>
+										<span class="fa fa-thumbs-o-up"><a style="padding: 5px;">15K</span>
+										<span class="fa fa-comments-o"><a style="padding: 5px;" href="#">2 comments</a></span>
+									</div>
 								</div>
 							</div>
 							<div class="cardDesc">
