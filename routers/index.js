@@ -46,7 +46,7 @@ router.get('/:blog_name/posts', function(req,res) {
     if(!dataPosts){
       res.render('404')
     } else {
-      res.send(dataPosts)
+      // res.send(dataPosts)
       res.render('index', {dataPosts:dataPosts})
     }
   })
