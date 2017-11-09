@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const models = require('../models');
 const checkLogin = require('../helpers/checkLogin');
-const ShareUrl = require('share-url');
 
 // START DUMMY PAGE
 router.get('/article-page',function(req,res){
@@ -19,7 +18,7 @@ router.get('/', (req, res) => {
 
 router.get('/:blog_name', function(req,res) {
   if(req.session.blog_name==req.params.blog_name){
-    res.render('dashboard',{session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
+    res.render('dashboard',{blogName:req.params.blog_name,session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
   }
   res.redirect(`/${req.params.blog_name}/posts`)
 })
@@ -45,10 +44,23 @@ router.get('/:blog_name/posts', function(req,res) {
   })
   .then(dataPosts=>{
     if(!dataPosts){
-      res.render('404',{loginStatus:req.session.loggedIn,session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
+      res.render('404',{categories:'',loginStatus:req.session.loggedIn,blogName:req.params.blog_name,session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
     } else {
-      // res.send(dataPosts)
-      res.render('index', {dataPosts:dataPosts,session:req.params.blog_name,loginStatus:req.session.loggedIn,username:req.session.username, user_id:req.session.user_id})
+      let datacategories = []
+      dataPosts.Posts.map(post=>{
+        post.Categories.map(category=>{
+          if(category){
+            datacategories.push(category.category_name)
+          }
+        })
+      })
+      var categories = [];
+      datacategories.forEach(function(item) {
+           if(categories.indexOf(item) < 0) {
+               categories.push(item);
+           }
+      });
+      res.render('index', {dataPosts:dataPosts,categories:categories,blogName:req.params.blog_name,session:req.params.blog_name,loginStatus:req.session.loggedIn,username:req.session.username, user_id:req.session.user_id})
     }
   })
   .catch(err=>{
