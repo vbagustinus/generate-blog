@@ -1,4 +1,4 @@
-<%- include('assets/partials/content',{my_title:"Blog - Home",folder:""})%>
+<%- include('assets/partials/content',{my_title:"Blog - Home",folder:"../../"})%>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -14,10 +14,12 @@
     </div>
   </div>
   <div id="content">
-    <img alt="" src="https://akcdn.detik.net.id/visual/2016/11/03/4a09058a-1af3-45d5-a8f7-922519093f12_43.jpg?w=500\"><br><br>Jakarta, Baru-baru ini Gubernur Kepulauan Bangka \r\nBelitung, Erzaldi Rosman Djohan melarang obat batuk Komix diperdagangkan\r\n di wilayahnya karena kerap disalahgunakan oleh masyarakat.<br><br>Sama \r\nhalnya yang dilakukan tiga pelajar di Jember, Jawa Timur beberapa waktu \r\nlalu yang ditangkap karena kedapatan pesta minum obat batuk Komix. Pesta\r\n minuman Komix sudah cukup lama menjadi trend kalangan pemuda untuk \r\nmabuk-mabukan. <br><br>\"Di dalam sirup obat batuk Komix ini kan ada \r\ncampuran Dextromethorphannya. Nah, Dextro ini kalau dikonsumsi \r\nberlebihan, akan menimbulkan efek seperti orang mabuk,\" ujar Kapolsek \r\nSemboro AKP Subagiyo, dikutip dari detikNews, Rabu (8/11/2017).<br><br>Begitu pula yang dikatakan oleh farmakolog dari Fakultas Farmasi \r\nUniversitas Gadjah Mada, Prof. Dr Zullies Ikawati, Apt bahwa \r\ndekstrometrofan yang terkandung dalam obat batuk bisa timbulkan efek \r\nhalusinasi.<br><br>\"Bisa, kalau dalam dosis besar,\" jawabnya kepada detikHealth.<br><br>Dosis\r\n yang boleh dikonsumsi orang dewasa adalah 10-20 miligram secara oral \r\nsetiap 4 jam atau 30 miligram setiap 6-8 jam, dan dosis maksimal 120 \r\nmiligram per hari.<br><br>Pada kemasan obat batuk Komix tertera dalam 1 \r\nsachet atau 7 mililiter mengandung 15 miligram dekstrometrofan. Itu \r\nartinya, jika mengonsumsi komix lebih dari 8 sachet dapat menyebabkan \r\nefek samping seperti orang mabuk.<br><br>\"Enggak harus dioplos, minum banyak saja akan muncul efeknya,\" tutup Prof Zullies.<br><br>(<b>wdw/wdw</b>)\r\n  \r\n<br>
-    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="auto" data-numposts="10"></div>
-  </div>
-
+    <%=dataPost.title%>
+    <%-dataPost.article%><br/>
+    <h3>Category: </h3>
+    <%dataPost.Categories.forEach(category=>{%>
+       || <%=category.category_name%>
+    <%})%>
 </div>
 
 <footer>

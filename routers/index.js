@@ -7,6 +7,9 @@ const checkLogin = require('../helpers/checkLogin');
 router.get('/article-page',function(req,res){
   res.render('article-page')
 })
+router.get('/404',function(req,res){
+  res.render('404')
+})
 // END DUMMY PAGE
 
 router.get('/', (req, res) => {
@@ -30,6 +33,10 @@ router.get('/:blog_name/posts', function(req,res) {
     include: [
     {
       model: models.Post,
+      include: [
+        {
+          model: models.Category
+        }]
     }],
     order: [
        [ models.Post, 'date_publish', 'ASC' ]
@@ -37,9 +44,9 @@ router.get('/:blog_name/posts', function(req,res) {
   })
   .then(dataPosts=>{
     if(!dataPosts){
-      res.send(404)
+      res.render('404')
     } else {
-      // res.send(dataPosts)
+      res.send(dataPosts)
       res.render('index', {dataPosts:dataPosts})
     }
   })

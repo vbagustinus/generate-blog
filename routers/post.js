@@ -11,9 +11,15 @@ router.get('/details/:link', (req, res) => {
     include: models.Category
   })
   .then(dataPost => {
-    res.render('aticle-page',{dataPost:dataPost})
+    // res.send(dataPost)
+    if(dataPost){
+      res.render('article-page',{dataPost:dataPost})
+    } else {
+      res.render('404-article')
+    }
   })
   .catch( err => {
+    console.log(err);
     res.send(err)
   })
 })
