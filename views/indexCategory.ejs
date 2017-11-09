@@ -1,0 +1,98 @@
+<%- include('assets/partials/content',{my_title:"Blog - Home",folder:"../../../"})%>
+
+		<div class="wrapper wrapperThreeColumns">
+			<div class="leftSidebar">
+				<div class="theiaStickySidebar">
+					<div style="padding: 0px; text-align:left;" class="box">
+						<div class="ads_index">
+		          <img src="../../../assets/images/ad300250.jpg" alt="">
+		        </div>
+						<div class="cont">
+		          <div class="side_title">
+		            <p>Lorem ipsum dolor sit amet</p>
+		          </div>
+		          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+		        </div>
+						<div style="padding-top:23px;" class="ads_index">
+		          <img src="../../../assets/images/home-chef-us-family-300x250.png" alt="">
+		        </div>
+					</div>
+					<div class="cont">
+						<div class="side_title">
+							<p>Lorem ipsum dolor sit amet</p>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+					</div>
+				</div>
+			</div>
+
+			<div class="content box">
+				<div class="theiaStickySidebar">
+					<%for(let i=0; i<dataPosts.Posts.length; i++){%>
+						<div class="card">
+
+							<!-- <div style="">
+									<div class="cardCategory"><a href="#">Category</a></div>
+									<div class="image" style="height: 350px; background-image: url('assets/images/loremipsum.jpg');"></div>
+							</div> -->
+
+							<div class="cardTitle">
+								<a href="/posts/details/<%=dataPosts.Posts[i].link%>"><%=dataPosts.Posts[i].title%></a>
+								<div class="cardFooter">
+									<span class="icon icon--time"><%=dataPosts.blog_name%></span>
+									<span class="icon icon--time"><%=dataPosts.Posts[i].date_publish%></span>
+									<span class="icon icon--comment"><a href="#">2 comments</a></span>
+								</div>
+							</div>
+							<div class="cardDesc">
+								<p style="font-size:16px;">
+				          <%let posts = dataPosts.Posts[i].article.substr(0,280)%>
+									<%-posts%>...
+				        </p>
+							</div>
+						</div>
+					<%}%>
+
+
+				</div>
+			</div>
+
+			<div class="rightSidebar">
+				<div class="theiaStickySidebar">
+					<div style="text-align:left;" class="box">
+						<div style="padding-bottom:25px;" class="ads_index">
+		          <img src="../../../assets/images/nike-free6.jpg" alt="">
+		        </div>
+						<div class="ads_index">
+		          <img src="../../../assets/images/lohan-family-300x250.jpg" alt="">
+		        </div>
+						<div class="cont">
+		          <div class="side_title">
+		            <p>Lorem ipsum dolor sit amet</p>
+		          </div>
+		          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+		        </div>
+						<div class="image" style="height: 200px; background-image: url('images/photo-1429593886847-3cc52983f919.jpg');"></div>
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p>
+				<div class="image" style="height: 900px; background-image: url('images/photo-1461016951828-c09537329b3a.jpg');"></div>
+			</p>
+		</div>
+
+		<script>
+			$(document).ready(function() {
+				$('.leftSidebar, .content, .rightSidebar')
+					.theiaStickySidebar({
+						additionalMarginTop: 30
+					});
+			});
+		</script>
+	</body>
+</html>
