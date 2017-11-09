@@ -21,7 +21,7 @@
   <nav style="background-color: rgb(24, 198, 155); border-color: rgb(24, 198, 155);" class="navbar navbar-inverse navbar-toggleable-md navbar-light bg-fadednavbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#"><%=session%> Blog</a>
     </div>
     <ul class="nav navbar-nav">
       <li class=""><a href="#">Home</a></li>
@@ -37,6 +37,7 @@
             <i class="glyphicon glyphicon-search"></i>
           </button>
           <%if(loginStatus){%>
+            <a href="/<%=session%>" style="margin-left:3px;" type="button" class="btn btn-success" name="login"><b>Dashboard</b></a>
             <a href="/logout" style="margin-left:3px;" type="button" class="btn btn-default" name="login">Logout</a>
           <%} else {%>
             <a href="/login" style="margin-left:3px;" type="button" class="btn btn-default" name="login">Login</a>

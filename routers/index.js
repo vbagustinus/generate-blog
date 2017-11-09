@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const models = require('../models');
 const checkLogin = require('../helpers/checkLogin');
+const ShareUrl = require('share-url');
 
 // START DUMMY PAGE
 router.get('/article-page',function(req,res){
@@ -44,10 +45,10 @@ router.get('/:blog_name/posts', function(req,res) {
   })
   .then(dataPosts=>{
     if(!dataPosts){
-      res.render('404',{loginStatus:req.session.loggedIn,username:req.session.username, user_id:req.session.user_id})
+      res.render('404',{loginStatus:req.session.loggedIn,session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
     } else {
       // res.send(dataPosts)
-      res.render('index', {dataPosts:dataPosts,loginStatus:req.session.loggedIn,username:req.session.username, user_id:req.session.user_id})
+      res.render('index', {dataPosts:dataPosts,session:req.params.blog_name,loginStatus:req.session.loggedIn,username:req.session.username, user_id:req.session.user_id})
     }
   })
   .catch(err=>{
