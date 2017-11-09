@@ -36,6 +36,7 @@ router.get('/:blog_name', function(req,res) {
       if(!dataPosts){
         res.redirect('/register')
       } else {
+        // res.send(dataPosts)
         res.render('index', {dataPosts:dataPosts})
       }
     })
@@ -139,7 +140,6 @@ router.post('/:blog_name/addpost', function(req,res){
     res.send(err)
   })
 })
-
 
 //----------------------
 // DELETE

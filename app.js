@@ -22,8 +22,8 @@ app.set('view engine', 'ejs');
 app.use('/login', login);
 app.use('/register', register);
 app.use('/post', post);
+app.use('/logout', logout);
 app.use('/', index);
-app.use('/logout', index);
 
 
 app.listen(3000,(err)=>{
