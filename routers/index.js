@@ -177,4 +177,16 @@ router.get('/delete/:id', function(req,res){
   })
 })
 
+//----------------------
+// USER | PAGE
+//----------------------
+router.get('/:blog_name/user/:id', function(req,res){
+  models.User.findById(req.params.id).then(function(rows){
+    // res.send(rows)
+    res.render('dashboard-user',{data_User:rows,blogName:req.params.blog_name,session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
+  }).catch(function(err){
+    if(err){console.log(err);}
+  })
+})
+
 module.exports = router
