@@ -2,7 +2,54 @@
 
 <!--main content start-->
 <section id="main-content">
-    <h1>boooo</h1>
+    <div style="padding-top: 10%;" class="row">
+      <div class="col-md-12">
+                <section class="panel">
+                    <div class="panel-body profile-information">
+                       <div class="col-md-3">
+                           <div class="profile-pic text-center">
+                               <img src="../../assets/images/john-small.png" alt=""/>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="profile-desk">
+                               <h1><%=data_User.first_name%> <%=data_User.last_name%></h1>
+                               <span class="text-muted">user name : <%=data_User.username%> | blog name : <%=data_User.blog_name%> | gender : <%=data_User.gender%></span>
+                               <p>
+                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor vestibulum imperdiet. Ut auctor accumsan erat, a vulputate metus tristique non. Aliquam aliquam vel orci quis sagittis.
+                               </p>
+                               <a href="/<%=session%>/user/delete/<%=user_id%>" class="btn btn-primary">Delete Account</a>
+                           </div>
+                       </div>
+                       <div class="col-md-3">
+                           <div class="profile-statistics">
+                               <h1>Email:</h1>
+                               <p><%=data_User.email%></p>
+                               <h1>Create:</h1>
+                               <p><%=data_User.createdAt%></p>
+                               <ul>
+                                   <li>
+                                       <a href="#">
+                                           <i class="fa fa-facebook"></i>
+                                       </a>
+                                   </li>
+                                   <li class="active">
+                                       <a href="#">
+                                           <i class="fa fa-twitter"></i>
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <a href="#">
+                                           <i class="fa fa-google-plus"></i>
+                                       </a>
+                                   </li>
+                               </ul>
+                           </div>
+                       </div>
+                    </div>
+                </section>
+            </div>
+    </div>
 </section>
 <!--main content end-->
 

@@ -178,7 +178,7 @@ router.get('/delete/:id', function(req,res){
 })
 
 //----------------------
-// USER | PAGE
+// USER | PROFILE PAGE
 //----------------------
 router.get('/:blog_name/user/:id', function(req,res){
   models.User.findById(req.params.id).then(function(rows){
@@ -188,5 +188,55 @@ router.get('/:blog_name/user/:id', function(req,res){
     if(err){console.log(err);}
   })
 })
+
+router.get('/:blog_name/user/delete/:id', function(req,res){
+  models.User.destroy({
+    where : {
+      id : req.params.id
+    }
+  }).then(function(){
+    req.session.destroy(()=>{
+      console.log('----------------------------THE END-------------------------------------------------');
+      console.log('Anda keluar')
+    })
+    res.redirect('../../register')
+  }).catch(function(err){
+    if(err){console.log(err);}
+  })
+})
+
+//----------------------
+// USER | SETTING PAGE
+//----------------------
+
+router.get('/:blog_name/user/setting/:id', function(req,res){
+  models.User.findById(req.params.id).then(function(rows){
+    // res.send(rows)
+    res.render('dashboard-setting',{data_User:rows,blogName:req.params.blog_name,session:req.params.blog_name,username:req.session.username, user_id:req.session.user_id})
+  }).catch(function(err){
+    if(err){console.log(err);}
+  })
+})
+
+router.post('/:blog_name/user/setting/:id', function(req,res){
+  models.User.update({
+    first_name : req.body.first_name,
+    last_name  : req.body.last_name,
+    username   : req.body.username,
+    blog_name  : req.body.blog_name,
+    gender     : req.body.gender,
+    email      : req.body.email
+  },{
+    where : {
+      id : req.params.id
+    }
+  }).then(function(){
+    res.redirect(`/${req.params.blog_name}`)
+  }).catch(function(err){
+    if(err){console.log(err);}
+  })
+})
+
+
 
 module.exports = router
